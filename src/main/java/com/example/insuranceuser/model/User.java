@@ -1,5 +1,6 @@
 package com.example.insuranceuser.model;
 
+import com.example.insuranceuser.dto.LoginDTO;
 import com.example.insuranceuser.dto.UserDTO;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -50,4 +51,5 @@ public class User {
         this.registeredDate=userDTO.getRegisteredDate();
         this.updatedDate=userDTO.getUpdatedDate();
     }
+
 }

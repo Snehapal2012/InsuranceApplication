@@ -1,5 +1,6 @@
 package com.example.insuranceuser.service;
 
+import com.example.insuranceuser.dto.LoginDTO;
 import com.example.insuranceuser.dto.OtpDTO;
 import com.example.insuranceuser.dto.UserDTO;
 import com.example.insuranceuser.model.User;
@@ -31,6 +32,10 @@ public interface IUserService {
     String sendOTP(String email);
 
     String loginWithOTP(OtpDTO otpDTO);
+
+
+
+    String login(LoginDTO loginDTO);
 
     // User userLogin(UserDTO userDTO);
 }

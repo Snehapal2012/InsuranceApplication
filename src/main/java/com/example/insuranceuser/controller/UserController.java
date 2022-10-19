@@ -1,5 +1,6 @@
 package com.example.insuranceuser.controller;
 
+import com.example.insuranceuser.dto.LoginDTO;
 import com.example.insuranceuser.dto.OtpDTO;
 import com.example.insuranceuser.dto.ResponseUserDTO;
 import com.example.insuranceuser.dto.UserDTO;
@@ -28,6 +29,12 @@ public class UserController {
         User user=userService.register(userDTO);
         ResponseUserDTO responseUserDTO =new ResponseUserDTO("User details is submitted!",user);
         return new ResponseEntity<>(responseUserDTO, HttpStatus.CREATED);
+    }
+    @PostMapping("/login")
+    public ResponseEntity<ResponseUserDTO> login(@RequestBody LoginDTO loginDTO){
+        String response=userService.login(loginDTO);
+        ResponseUserDTO responseUserDTO=new ResponseUserDTO("User is logged in",response);
+        return new ResponseEntity<>(responseUserDTO,HttpStatus.OK);
     }
 
     @PostMapping("/sendOTP/{email}")

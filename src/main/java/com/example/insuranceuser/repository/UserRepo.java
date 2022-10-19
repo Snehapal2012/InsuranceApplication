@@ -18,5 +18,6 @@ public interface UserRepo extends JpaRepository<User,Long> {
     List<User> findUserWithVehicleData(String vehicle);
     @Query(value = "select * from insurance.user where user.email=:email",nativeQuery = true)
     User findByEmail(String email);
-
+    @Query(value = "select * from insurance.user where user.email=:email and user.password=:password",nativeQuery = true)
+    String findByLogin(String email, String password);
 }

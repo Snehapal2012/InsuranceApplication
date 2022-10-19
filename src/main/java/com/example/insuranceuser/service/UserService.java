@@ -1,5 +1,6 @@
 package com.example.insuranceuser.service;
 
+import com.example.insuranceuser.dto.LoginDTO;
 import com.example.insuranceuser.dto.OtpDTO;
 import com.example.insuranceuser.dto.UserDTO;
 import com.example.insuranceuser.exception.OTPException;
@@ -88,6 +89,12 @@ public class UserService implements IUserService{
             throw new OTPException("OTP expired");
         } else
             throw new OTPException("Invalid OTP");
+    }
+
+    @Override
+    public String login(LoginDTO loginDTO) {
+        String user=userRepo.findByLogin(loginDTO.getEmail(),loginDTO.getPassword());
+        return "Login Successful!";
     }
 
     @Override
